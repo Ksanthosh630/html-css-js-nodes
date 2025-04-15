@@ -1,0 +1,22 @@
+TABLES:
+
+1)tables are used to reprented data in rows & columns.
+2)harizantal are called rows & verticales are called columns.
+3) table can be be created using 'table' tag
+4)inside each row,will have 'tr' tag
+5)inside each row,we can have td(table data) or th(table tag)
+6)td/th values can be any element or plain text
+eg:
+<table>
+ <tr>
+  <th>name<th>
+  <th>intial<th>
+  </tr>
+  <table>
+
+  7)To combine  muttiple rows we can use "rowspan" attribute
+  8)To combine  muttiple columns we can use "colspan" attribute
+      eg:
+       <td rowsspan="2">text</td>
+       <td colspan="2">text</td>
+  9)we can make the code more redable  and SEO FRIENDLY using thead,tbody 

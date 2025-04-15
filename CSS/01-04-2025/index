@@ -1,0 +1,28 @@
+flex:
+flex is used to arrange elements in single direction
+    i.e row or column
+    always first should be dwfined to the parent element.
+    default direction for  flex is "ROW".
+
+    parent properties:(parent tag we write flex)
+     display:flex;
+     flex-direction: row/column/row-reverse/column-reverse
+
+     justyfy-content:left/start/right/end/center/space-around/space-between/space-evenly
+
+     alighn-items:start/left/right/end/center
+     it arranges elements in opposite direction of flex
+
+     gap:it is used to define gap between the elements
+
+     flex-wrap:nowrap/wrap/wrap-reverse
+     it is used to wrap up elements until their width/height such that new lines will form
+
+     gap:
+     it shows the gap;
+
+        =================================================
+          see webite:flexbox labs.netlify.app
+                      in google  you can see flex information
+
+

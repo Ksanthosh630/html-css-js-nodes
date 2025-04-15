@@ -1,0 +1,50 @@
+forms:
+
+-->form are used to collect the users data
+-->forms contains several inputs and buttons.
+this  submited the data of form will be sent to backend by API(java script) 
+
+forms uses <form> tag
+  syntax:
+  _________________________
+            <body>
+             <form action="main java" method="get()" >
+             .......
+             .........
+             ............
+             </form>
+             </body>
+
+
+             Method: method will show  whether enter vallues  should be visible on URL or not
+
+
+               get:--->show the values in URL(default).
+               POST:--->wii not show the values in URL.
+
+
+             INPUT: 
+              <input> this tag used to collect user input and it is a inline stament
+              and self closing tag.
+              its attributes are
+                 1)type:         it define type of input,by default"text" 
+                 2)placeholder:  placeholder is the dummy text that is present untill the user enter the values.
+                          ex:  /result?search_query=tom
+                                 |         |         |
+                              action     name       value
+
+                 3)value:it is the actual data user enters,we can use it for pre written value.
+                  4) name:name is the name of the pa riticuler input while it is sending the data to another file.
+                  5)id:id is general atribute , which is used to identify the element uniquely.
+
+
+                  LABEL:To assign or describe a name for input, we can use label tag.
+
+                    1)label tag contains "for" atribute whose value should be same as the "id" value.
+                        
+                               eg:<label for="ss">Ener your name</label>
+                                    <input type="text" id="ss">
+              ___________________________________________________________________________________________
+                
+              
+                 

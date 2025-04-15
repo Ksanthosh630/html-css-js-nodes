@@ -1,0 +1,19 @@
+Background:-
+       we can assign Background-color using 'Background-color' property
+        
+        ex: for red color:
+          backgrond-color:red / rgb(2555,0,0)/ regba(2555,0,0,1);
+
+      background-image:linear-gradient(orange,tomato,orange,tomato,orange);
+
+      FONTS:fonts represents brands.
+         they are 5 font families  excisted.
+         a)serif:this fonts have at the end stokes. example: times new roman
+         b)sans-serif:this fonts have at the end  will not have stokes.
+         c)monospace:this letters have same height and same gap
+         d)cursive: these are slant sleeping letters.
+         
+
+         Q)how to include diffent font in webpage?
+
+

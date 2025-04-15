@@ -1,0 +1,41 @@
+body{
+  background-color: aqua;
+
+ 
+}
+div>img{
+    height: 200px;
+    width: 100px;
+}
+
+div{
+    animation: rectangle-animation  5s linear  infinite alternate;
+      
+}
+@keyframes rectangle-animation {
+  0%{
+      transform: translateX(200px);
+
+  }
+  25%{
+    transform: translateX(400px);
+
+  }
+  50%{
+    transform: translateY(200px)translateX(400px);
+
+
+  }
+  75%{
+    transform: translateY(200px)translateX(200px) ;
+
+    
+  }
+  100%{
+
+    transform: translateX(200px)  ;
+    
+     
+  }
+  
+}

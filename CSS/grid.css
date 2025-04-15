@@ -1,0 +1,41 @@
+#d{
+    border: 2px blue solid ;
+    height: 95vh;
+    width: 80vw;
+    display:grid;
+    
+    grid-template-columns: auto 5% 50px ;
+     /*
+  grid-template-rows:repeat(2,100px) ;  */
+
+        gap: 20px;  
+
+     /* row-gap: 20px; 
+     column-gap: 20px; */
+     
+     /* justify-content: center;
+     align-items: center;*/
+     align-content: center; 
+}
+
+.child1{
+    
+     border: 2px solid rgb(17, 25, 27); 
+}
+.ch12{
+    grid-column: 1/4;
+    border: 2px solid rgb(40, 172, 216);
+    grid-row: 1/4;
+
+}
+.ch232{
+    grid-column: 0/0;
+    grid-row: 0/0;
+    border: 2px solid rgb(40, 172, 216);
+
+grid-area: 4/1/5/2;
+
+}
+ .ch32{
+ grid-row: 5/6;
+} 

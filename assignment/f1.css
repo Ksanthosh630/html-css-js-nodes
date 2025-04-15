@@ -1,0 +1,43 @@
+
+
+body{
+    background-color: rgb(114, 200, 237);
+    
+}
+.d1{
+    text-align: center;
+    
+    position:absolute;
+    top: 80px;
+   left: 450px;
+  
+
+    
+   }
+
+
+#form{
+ background-color:white ;
+  
+    height: 400px;
+    width: 500px;
+}
+
+img{
+     
+    height: 100px;
+    width: 70px;
+
+
+}
+button{
+    background-color: blue;
+    width: 150px;
+}
+#for{
+    width: 150px;
+}
+#account{
+    width: 150px;
+    color: yellowgreen
+}

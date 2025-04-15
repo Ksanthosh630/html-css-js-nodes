@@ -1,0 +1,41 @@
+<html nodes programs: 1)optgroup.html
+optgroup :  
+      optgroup tag is used group the option under speicfic label
+
+    textArea:
+         it is is used to take input using unlimted taxt like
+              feedbacks,review,adrees etc,....
+          it contains attributes like rows and cols.
+
+
+          fildset:
+               it is used to wap the whole from inputs with in  a box with border.
+                 we can provider title to the box by using "legend".
+
+
+          HTML VALIDTION:
+            WE CAN validate basic details using HTML input attributes like
+               required: all the inputs with the required tag needs to be written before dubmitting form.
+
+               BASIC VALIDTION in html:
+               _____________________________
+                1)disable:it is used to make the input diabled
+                2)required
+                3)minlength,maxlength :they are  used to find minimum and maximum length of a string/text.
+                4)min,max:they are used to find min and max values an input with a reguler expression.
+                
+                   A reguluer expression is a set of characters used to create a pattern.Each and every character in reguler expression will have meaning
+                       
+                        regex:   valid           invalid
+
+                        "raj"     "raj"          "prasad"
+                        "raj+"  "raj","raj",        "raju"
+                [A-Za-z] {3,}     RAJ,Prasadh        hi
+                [A-Za-z] {1,8}   RAJ,Prasadh         santhoshkumar
+
+                      ---->we can use \d for [0-9],\w  words,\s for sentences
+                
+                 
+              
+
+

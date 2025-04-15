@@ -1,0 +1,66 @@
+  *{
+     background-color: rgb(12, 207, 142);
+    padding: 0%;
+    margin: 0%;
+  }
+.parent{
+    background-color: aquamarine;
+    /* border: 2px red solid; */
+    height: 98vh;
+    width: 100vw;
+    margin: 20px 20px 20px 20px;
+    
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 100px 200px;
+    grid-gap: 1px;
+}
+.child{
+    border: 2px rgb(10, 238, 101) solid;
+    margin: 5px 20px 20px 20px;
+    background-color: blueviolet;
+    color: aliceblue;
+
+    margin-right: 0px;
+
+
+    
+}
+.ch1{
+        padding-top: 20px;
+    text-align: center;
+    grid-column: 1/4;
+
+
+}
+.ch2{
+    padding-top: 150px;
+    text-align: center;
+    grid-row: 2/4;
+}
+.ch3{
+    padding-top: 50px;
+    text-align: center;
+    grid-column: 2/4;
+
+}
+.ch4{
+    padding-top: 50px;
+    text-align: center;
+    grid-column: 2/4;
+
+
+}
+.ch5{
+    padding-top: 30px;
+    text-align: center;
+    grid-column: 1/4;
+
+
+}
+.ch6{
+    padding-top: 50px;
+    text-align: center;
+    grid-column: 1/4;
+
+}

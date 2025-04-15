@@ -1,0 +1,15 @@
+TYPE OF INPUTS INPUTS:
+1. text:               it is used to accept text
+2. email:             it is used to accept emails.
+3.password:          it is used hide the text/input.it can use secret keys,upi...etc.
+4. number :          number is used to accept only numaricalvalue
+5. file:            it is used  for upload any files
+6.date:             it is used select a specific date.
+7.time:            it is used select a specific time.
+8.date-timelocal:  it is used select a both date and time at a time.
+9.search :         it is used search a particuler value.by dedefault
+10.url :           it is used to submit a specific adrres/link
+11.hidden:        it is used the hide data/input
+12. radio :       it is used accept radio buttons and these buttons are used for single selection.
+13.color:         it is used to submit a specific color.
+14.checkbox:     it is used to select mutiple options.
