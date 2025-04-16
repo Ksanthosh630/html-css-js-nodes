@@ -1,0 +1,15 @@
+.bl{
+    height: 200px;
+    background: blue;
+    margin: 400px;
+    padding: 200px;
+}
+.b2{
+    height: 100px;
+    width:200px;
+    background-color:rgb(228, 228, 236);
+    margin: 400px;
+    border-color: black;
+
+    
+}

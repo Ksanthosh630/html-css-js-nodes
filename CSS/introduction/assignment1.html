@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Government Job Application Form</title>
+    <link rel="stylesheet" href="./external.css">
+</head>
+<body>
+    <Fieldset ><legend>Government Job Application Form</legend>
+    <form action="#" method="post">
+        <label for="full_name">Full Name:</label>
+        <input type="text" id="full_name" name="full_name" required><br><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" class="g" id="email" name="email" required><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" maxlength="10" id="phone" name="phone" required><br><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea><br><br>
+
+        <label for="qualification">Highest Qualification:</label>
+        <input type="text" id="qualification" name="qualification" required><br><br>
+
+        <label for="experience">Work Experience (if any):</label>
+        <input type="text" id="experience" name="experience"><br><br>
+
+        <label for="photo">Upload Photo:</label>
+        <input type="file" id="photo" name="photo" accept=".jpg" required><br><br>
+
+        <label for="signature">Upload Signature:</label>
+        <input type="file" id="signature" name="signature" required><br><br>
+
+        <label for="job_post">Job Post Applying For:</label>
+        <input type="text" id="job_post" name="job_post" required><br><br>
+
+        <label for="declaration">
+            <input type="checkbox" id="declaration" name="declaration" required>
+            I declare that the information provided is true.
+        </label><br><br>
+
+        <input type="submit" value="Submit">
+    </fieldset>
+    </form>
+</body>
+</html>

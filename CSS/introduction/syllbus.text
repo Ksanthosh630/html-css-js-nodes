@@ -1,0 +1,39 @@
+introduction:
+---------------
+css stands for cascading style sheet
+css is used to design (or) to provide layout for the webpage
+css is introduced in 1993 and is's one of the powerful design standard language.
+
+different types of css
+--------------------------------------------
+css can be applied to html using in 3 ways;
+  1)inline CSS: it appies styling to an element using "style" as atrribute.
+      Syntax:<element style=" ">something</element>
+   2)internal CSS: it appies styling to a an element (or) mutiple elements
+        using style an element.
+
+        selctors are used to select the element
+          1)we can select elements using tag name
+          2)we can select elements with same class name using .class name
+          3)we can select an element with the  id name using #.id name
+          4) prefence: !important> ---> id>class>tag>
+   3)external css:
+              we can include css in seperate file with extention .css and use html using link  tag  
+                 <link rel="stylesheet" href="path">
+
+      CSS COMMENTS: mutiplelines for /* ......*/
+
+   4)colors:we can assign colors in css using 
+          i) colornames 
+          ii)rgb(red,green,blue)---each one takes 0 to 255
+          iii)rgba(red,green,blue,alpha)---alpha ranges from 0.o to 0.1
+          iv)hsl(hue,saturation,lightness)
+          v)hsla(hue,saturation,lightness,alpha)
+          vi)hexadecimal
+
+           
+            
+          
+
+
+

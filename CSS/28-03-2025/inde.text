@@ -1,0 +1,17 @@
+float:
+      it is a property used for making elements float left or right.
+        it removes the element
+
+Dispay:
+    it is used  to change the elements view like block or online etc....,
+   -->    it is changeing blocked elements converted to inline
+   ---->it is changeing  inline converted to blocked elements 
+       
+       ---> display:none
+                | aove one---> to make this disappear;
+     position:
+    ----------------
+         it is used to to keep an element at different places on web page.it allows us to move element based on top,
+         left,right,bottom properties.
+
+         

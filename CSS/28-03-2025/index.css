@@ -1,0 +1,26 @@
+div{
+    background-color:rgb(158, 74, 74) important;
+}
+.one{
+    background-color: red;
+    
+}
+.two{
+    background-color: blue;
+    
+}
+p{
+    display: inline;
+    
+}
+.three{
+    background-color:yellow;
+}
+img{
+    float:right;
+    height: 200px;
+    /*
+    display: none;  --->this one is text (or) image we canot see in the wab page
+    
+    */
+}

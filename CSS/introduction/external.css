@@ -1,0 +1,31 @@
+.d{
+    background-color: blue ;
+      color: green  ;
+  }
+  #g{
+    color: red ; 
+  }
+  #f{
+      font-size: 100px;
+    color: rgb(55, 241, 241);
+    text-align: center;
+    text-transform: capitalize;
+   text-shadow: 10px 3px  black;
+   text-decoration: 2px double  black ;
+   }
+   
+   
+   /*
+   body{
+      width: 500px;
+      height: 500px;
+     background: linear-gradient(to right, red,white,green);
+     background-image:radial-gradient(orange,tomato,orange,tomato,orange) !important;
+     background-image: url("./26-03-2025/ABD.jpg") !important;
+     background-repeat: no-repeat;
+     
+   }*/
+
+
+   /* comments using in css using like this */
+  
