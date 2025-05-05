@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0051)https://cscircles.cemc.uwaterloo.ca/java_visualize/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><!--
+
+This file, java_visualize/index.html, is based on
+visualize.html from the Online Python Tutor.
+Changes made by David Pritchard (daveagp@gmail.com);
+see README for more details.
+
+Summary of changes made:
+- different file locations
+- uses Java, not Python
+- uses CodeMirror latest version
+- lazier approach for loading examples
+
+==== Header from visualize.html ====
+
+Online Python Tutor
+https://github.com/pgbovine/OnlinePythonTutor/
+
+Copyright (C) 2010-2013 Philip J. Guo (philip@pgbovine.net)
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+ --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Java Visualizer</title>
+
+<!-- requirements for pytutor.js -->
+<script type="text/javascript" src="./Java Visualizer_files/d3.v2.min.js.download"></script>
+<script type="text/javascript" src="./Java Visualizer_files/jquery-1.8.2.min.js.download"></script>
+<script type="text/javascript" src="./Java Visualizer_files/jquery.ba-bbq.min.js.download"></script> <!-- for handling back button and URL hashes -->
+<script type="text/javascript" src="./Java Visualizer_files/jquery.jsPlumb-1.3.10-all-min.js.download"></script> <!-- for rendering SVG connectors
+              DO NOT UPGRADE ABOVE 1.3.10 OR ELSE BREAKAGE WILL OCCUR -->
+<script type="text/javascript" src="./Java Visualizer_files/jquery-ui-1.8.24.custom.min.js.download"></script> <!-- for sliders and other UI elements -->
+
+<link type="text/css" href="./Java Visualizer_files/jquery-ui-1.8.24.custom.css" rel="stylesheet">
+
+<!-- for annotation bubbles -->
+<script type="text/javascript" src="./Java Visualizer_files/jquery.qtip.min.js.download"></script>
+<link type="text/css" href="./Java Visualizer_files/jquery.qtip.css" rel="stylesheet">
+
+<script type="text/javascript" src="./Java Visualizer_files/pytutor.js.download"></script>
+<script type="text/javascript" src="./Java Visualizer_files/hooks.js.download"></script>
+<script type="text/javascript" src="./Java Visualizer_files/pytutor-customizations.js.download"></script>
+<link rel="stylesheet" href="./Java Visualizer_files/pytutor.css">
+<link rel="stylesheet" href="./Java Visualizer_files/pytutor-customizations.css">
+
+<!-- requirements for opt-frontend.js -->
+
+<!-- codemirror.net online code editor -->
+<script type="text/javascript" src="./Java Visualizer_files/codemirror.js.download"></script>
+<link type="text/css" href="./Java Visualizer_files/codemirror.css" rel="stylesheet">
+<script type="text/javascript" src="./Java Visualizer_files/clike.js.download"></script>
+<script type="text/javascript" src="./Java Visualizer_files/matchbrackets.js.download"></script>
+
+<script type="text/javascript" src="./Java Visualizer_files/config.js.php"></script> <!-- used to be opt-frontend.js -->
+<script type="text/javascript" src="./Java Visualizer_files/jv-frontend.js.download"></script> <!-- used to be opt-frontend.js -->
+<link rel="stylesheet" href="./Java Visualizer_files/opt-frontend.css">
+
+</head>
+
+<body>
+
+<table style="margin:0px auto 0px auto;"><tbody><tr><td><img title="Based on icons by Jacob Halton and Francesco Terzini of the Noun Project" src="./Java Visualizer_files/jv64.png"></td><td style="text-align: center"><span style="font-size:150%">Java Visualizer</span><br><i>(beta:</i> 
+ <a href="mailto:daveagp@gmail.com">report a bug</a>)
+</td></tr></tbody></table>
+
+<div id="pyInputPane">
+
+<p style="text-align:center;">Write your Java code here:</p>
+
+<div id="codeInputPane">
+<div class="CodeMirror cm-s-default     CodeMirror-focused" style="height: auto;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 94.5781px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-hscrollbar" style="left: 29px; display: block; right: 0px;"><div style="height: 100%; min-height: 1px; width: 948px;"></div></div><div class="CodeMirror-vscrollbar" style="bottom: 15px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" style="width: 15px; height: 15px;"></div><div class="CodeMirror-gutter-filler"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 29px; min-width: 948.266px; min-height: 568px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines"><div style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre>x</pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>33</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style="visibility: hidden;"><div class="CodeMirror-cursor" style="left: 65.5781px; top: 0px; height: 16px;">&nbsp;</div></div><div class="CodeMirror-code" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">1</div></div><pre><span style="padding-right: 0.1px;"><span class="cm-keyword">public</span> <span class="cm-keyword">class</span> <span class="cm-variable">First_20_Prime_sum</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">2</div></div><pre class=""><span style="padding-right: 0.1px;">   </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">3</div></div><pre><span style="padding-right: 0.1px;">{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">4</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-keyword">public</span> <span class="cm-keyword">static</span> <span class="cm-keyword">void</span> <span class="cm-variable">main</span> (<span class="cm-variable">String</span>[] <span class="cm-variable">args</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">java</span>.<span class="cm-variable">lang</span>.<span class="cm-variable">Exception</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">5</div></div><pre><span style="padding-right: 0.1px;"><span class="cm-tab">   </span>{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">6</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-comment">// your code goes here</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">7</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span> <span class="cm-keyword">int</span> <span class="cm-variable">c</span><span class="cm-operator">=</span><span class="cm-number">1</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">8</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span>   <span class="cm-keyword">int</span> <span class="cm-variable">sum</span><span class="cm-operator">=</span><span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">9</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span>   <span class="cm-keyword">int</span> <span class="cm-variable">k</span><span class="cm-operator">=</span><span class="cm-number">0</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">10</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span>   </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">11</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-keyword">for</span>(<span class="cm-keyword">int</span> <span class="cm-variable">j</span><span class="cm-operator">=</span><span class="cm-number">2</span>;<span class="cm-variable">c</span><span class="cm-operator">&lt;=</span><span class="cm-number">20</span>;<span class="cm-variable">j</span><span class="cm-operator">++</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">12</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span>{</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">13</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-variable">k</span><span class="cm-operator">=</span><span class="cm-variable">j</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">14</div></div><pre class=""><span style="padding-right: 0.1px;">           <span class="cm-keyword">int</span> <span class="cm-variable">flag</span><span class="cm-operator">=</span><span class="cm-number">0</span>;<span class="cm-tab">  </span><span class="cm-tab">   </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">15</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span>       <span class="cm-keyword">for</span>(<span class="cm-keyword">int</span> <span class="cm-variable">i</span><span class="cm-operator">=</span><span class="cm-number">2</span>;<span class="cm-variable">i</span><span class="cm-operator">&lt;=</span><span class="cm-variable">j</span><span class="cm-operator">/</span><span class="cm-number">2</span>;<span class="cm-variable">i</span><span class="cm-operator">++</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">16</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span>             {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">17</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-tab">   </span>            <span class="cm-keyword">if</span>(<span class="cm-variable">j</span><span class="cm-operator">%</span><span class="cm-variable">i</span><span class="cm-operator">==</span><span class="cm-number">0</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">18</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-tab">   </span>            <span class="cm-tab">   </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">19</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-tab">   </span>          {<span class="cm-variable">flag</span> <span class="cm-operator">=</span><span class="cm-number">1</span>;<span class="cm-keyword">break</span>;}<span class="cm-comment">//if any number divisible by j then j is not prime<span class="cm-tab">  </span><span class="cm-tab">   </span>              </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">20</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span>             </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">21</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span>             }<span class="cm-comment">// loop using factors in  between 2 to half the number </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">22</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span>     <span class="cm-keyword">if</span>(<span class="cm-variable">flag</span><span class="cm-operator">==</span><span class="cm-number">0</span>)</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">23</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span>       {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">24</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-tab">   </span>   <span class="cm-variable">sum</span><span class="cm-operator">=</span><span class="cm-variable">sum</span><span class="cm-operator">+</span><span class="cm-variable">k</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">25</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-tab">   </span>    <span class="cm-variable">c</span><span class="cm-operator">++</span>;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">26</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-tab">   </span>    </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">27</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-tab">   </span>   }<span class="cm-comment">//if prime add to the sum</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">28</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span> </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">29</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span>       </span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">30</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span>}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">31</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">32</div></div><pre class=""><span style="padding-right: 0.1px;"><span class="cm-tab">   </span><span class="cm-tab">   </span><span class="cm-variable">System</span>.<span class="cm-variable">out</span>.<span class="cm-variable">println</span>(<span class="cm-string">"total= "</span><span class="cm-operator">+</span><span class="cm-variable">sum</span>);</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">33</div></div><pre><span style="padding-right: 0.1px;"><span class="cm-tab">   </span>}</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">34</div></div><pre><span style="padding-right: 0.1px;"> }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="position: absolute; left: -29px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 20px;">35</div></div><pre><span style="padding-right: 0.1px;"><span>​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 30px; width: 1px; top: 568px;"></div><div class="CodeMirror-gutters" style="height: 568px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 28px;"></div></div></div></div></div> <!-- populate with a CodeMirror instance -->
+
+<table><tbody><tr>
+<td>
+<button onclick="$(&#39;#options&#39;).toggle()">options</button>
+</td>
+<td>
+<span id="options" style="display:none">
+ <span style="white-space: nowrap;"> 
+  <input id="showStringsAsObjects" type="checkbox">
+  <label for="showStringsAsObjects">
+  Show String/Integer/etc objects, not just values
+ </label></span>
+ <span style="white-space: nowrap;"> 
+  <input id="showAllFields" type="checkbox">
+  <label for="showAllFields">
+  Show overridden fields, synthetics
+ </label></span>
+ <span style="white-space: nowrap;"> 
+  <input id="disableNesting" type="checkbox">
+  <label for="disableNesting">
+  Prefer non-nesting and vertical layouts
+ </label></span>
+ <span style="white-space: nowrap;"> 
+  <input id="verticalLists" type="checkbox">
+  <label for="verticalLists">
+  Force linked lists to display vertically
+ </label></span>
+</span> <!-- #options -->
+</td>
+</tr></tbody></table>
+
+<div id="args">
+<code>args</code>: <span id="argslist"></span>
+<button id="addarg" onclick="javascript:addArg(&quot;&quot;)">+command-line argument</button>
+</div>
+
+<div id="stdin">
+<button id="stdin-button" onclick="$(&quot;#stdin-xdiv&quot;).toggle()">stdin</button>
+(also visualizes consumption of <a href="http://introcs.cs.princeton.edu/java/stdlib/"><code>StdIn</code></a>)
+<div id="stdin-xdiv" style="display:none;position:relative">
+<textarea id="stdinarea" style="-webkit-box-sizing: border-box;width:100%;height:100px;font-family:monospace"></textarea>
+<sup style="position:absolute;top:5px;right:5px" class="closestdin" onclick="$(&quot;#stdin-xdiv&quot;).toggle()">x</sup>
+</div>
+</div>
+
+<style>
+button {
+font-family: verdana, arial, helvetica, sans-serif;
+}
+.arg, #stdin-xdiv {
+margin-right: 1px; 
+padding: 5px 3px; 
+border:1px solid #DDD;
+background-color: #EEE;
+border-radius: 5px;
+-webkit-border-radius: 5px;
+}
+.arg input {
+ width: 50px
+}
+.closex {
+font-weight:bold;
+position:relative;
+top:-4px;
+left:2px;
+text-decoration:none;
+color:red;
+cursor:pointer;
+}
+.closestdin {
+font-weight:bold;
+text-decoration:none;
+color:red;
+cursor:pointer;
+}
+.toggler { text-align:center; }
+</style>
+
+<script type="text/javascript">
+addArg = function(init) {
+  $('#argslist').append('<span class="arg"><input type="text"></input><sup class="closex">x</sup></span>');
+  $('#argslist .arg:last-child input').val(init);
+};
+$('#args').on('click', '.closex', function(event) {
+  $(this).parents('span.arg').remove();
+});
+
+$(function(){ $('.toggler a').on('click', function(event) {
+$('#faq').toggle();
+return false;
+});
+});
+
+topics = [
+["basic",["(Default)","Variables","CmdLineArgs","StdIn","ControlFlow","Sqrt","ExecLimit","Strings"]],
+["method",["PassByValue","Recursion","StackOverflow"]],
+["oop",["Rolex","Person","Complex","Casting"]],
+["data structure",["LinkedList","StackQueue","Postfix","SymbolTable"]],
+["java feature",["ToString","Reflect","Exception","ExceptionFlow","TwoClasses"]]
+];
+</script>
+
+<!--
+<p style="margin-top: 10px; line-height: 200%;">
+Execute code using
+  <select id="pythonVersionSelector">
+    <option value="2">Python 2.7</option>
+    <option value="3">Python 3.3</option>
+  </select>,
+-->
+<!-- these two make sense, but are not implemented yet
+  <select id="cumulativeModeSelector">
+    <option value="false">hide frames of exited functions</option>
+    <option value="true">show frames of exited functions</option>
+  </select>,
+  <select id="heapPrimitivesSelector">
+    <option value="false">inline primitives and nested objects</option>
+    <option value="true">render all objects on the heap</option>
+  </select>,
+-->
+<!--
+  <select id="drawParentPointerSelector">
+    <option value="false">hide environment parent pointers</option>
+    <option value="true">show environment parent pointers</option>
+  </select>,
+  <select id="textualMemoryLabelsSelector">
+    <option value="false">draw references using arrows</option>
+    <option value="true">use text labels for references</option>
+  </select>, and
+  <select id="showOnlyOutputsSelector">
+    <option value="false">show everything</option>
+    <option value="true">show only outputs</option>
+  </select>.
+</p>
+-->
+
+<p style="text-align:center">
+<button id="executeBtn" class="bigBtn" type="button">Visualize execution</button>
+</p>
+
+
+<p style="margin-top: 25px;" id="examplesHolder">
+
+<!--
+<a id="aliasExampleLink" href="#">hello</a> |
+<a id="happyExampleLink" href="#">happy</a> |
+<a id="tutorialExampleLink" href="#">intro</a> |
+<a id="filterExampleLink" href="#">filter</a> |
+<a id="strtokExampleLink" href="#">tokenize</a> |
+<a id="insSortExampleLink" href="#">insertion sort</a> |
+<a id="listCompLink" href="#">list comprehension</a>
+</p>
+
+<p style="margin-top: 15px;">Math-Related Fun:<br/>
+<a id="factExampleLink" href="#">factorial</a> |
+<a id="fibonacciExampleLink" href="#">fibonacci</a> |
+<a id="memoFibExampleLink" href="#">memoized fibonacci</a> |
+<a id="newtonExampleLink" href="#">square root</a> |
+<a id="pwGcdLink" href="#">gcd</a> |
+<a id="towersOfHanoiLink" href="#">towers of hanoi</a>
+</p>
+
+<p style="margin-top: 15px;">Higher-Order Functions:<br/>
+
+<a id="closure1Link" href="#">closure 1</a> |
+<a id="closure2Link" href="#">closure 2</a> |
+<a id="closure3Link" href="#">closure 3</a> |
+<a id="closure4Link" href="#">closure 4</a> |
+<a id="closure5Link" href="#">closure 5</a>
+<br/>
+<! -- <a id="sumCubesLink" href="#">sum cubes</a> | -- >
+<a id="mapExampleLink" href="#">list map</a> |
+<a id="sumExampleLink" href="#">summation</a> |
+<a id="lambdaParamLink" href="#">lambda param</a> |
+<a id="tortureLink" href="#">student torture</a>
+
+</p>
+
+<p style="margin-top: 15px;">User Input:<br/>
+
+<a id="rawInputExampleLink" href="#">raw input</a>
+
+</p>
+
+<p style="margin-top: 15px;">Object-Oriented Programming:<br/>
+
+<a id="oop1ExampleLink" href="#">OOP 1</a> |
+<a id="oop2ExampleLink" href="#">OOP 2</a> |
+<a id="oopSmallExampleLink" href="#">OOP 3</a> |
+<a id="inheritanceExampleLink" href="#">inheritance</a>
+
+</p>
+
+<p style="margin-top: 15px;">Linked Lists:<br/>
+<a id="ll1Link" href="#">LL 1</a> |
+<a id="ll2Link" href="#">LL 2</a> |
+<a id="sumListLink" href="#">LL sum</a>
+</p>
+
+<p style="margin-top: 15px;">Pointer Aliasing:<br/>
+<a id="aliasing1Link" href="#">aliasing 1</a> |
+<a id="aliasing2Link" href="#">aliasing 2</a> |
+<a id="aliasing3Link" href="#">aliasing 3</a> |
+<a id="aliasing4Link" href="#">aliasing 4</a>
+<br/>
+<a id="aliasing5Link" href="#">aliasing 5</a> |
+<a id="aliasing6Link" href="#">aliasing 6</a> |
+<a id="aliasing7Link" href="#">aliasing 7</a> |
+<a id="aliasing8Link" href="#">aliasing 8</a> |
+<a id="pwSumListLink" href="#">sumList</a>
+</p>
+
+<p style="margin-top: 15px;">More Python Tricks:<br/>
+<a id="decoratorsLink" href="#">decorators</a> |
+<a id="genPrimesLink" href="#">generators</a> |
+<a id="genExprLink" href="#">gen expr</a> |
+<a id="varargsLink" href="#">varargs</a> |
+<a id="pwTryFinallyLink" href="#">exceptions</a> |
+<a id="forElseLink" href="#">for-else</a> |
+<a id="nonlocalLink" href="#">nonlocal</a>
+</p>
+-->
+basic examples | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">(Default)</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Variables</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">CmdLineArgs</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">StdIn</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">ControlFlow</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Sqrt</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">ExecLimit</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Strings</a><br>method examples | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">PassByValue</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Recursion</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">StackOverflow</a><br>oop examples | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Rolex</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Person</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Complex</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Casting</a><br>data structure examples | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">LinkedList</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">StackQueue</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Postfix</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">SymbolTable</a><br>java feature examples | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">ToString</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Reflect</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Exception</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">ExceptionFlow</a> | <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">TwoClasses</a></p><div>The visualizer supports 
+<code><a href="http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdIn.html">StdIn</a></code>, 
+<code><a href="http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdOut.html">StdOut</a></code>, 
+most other <a href="http://introcs.cs.princeton.edu/java/stdlib"><tt>stdlib</tt> libraries</a>,
+<a href="http://introcs.cs.princeton.edu/java/43stack/Stack.java.html"><tt>Stack</tt></a>,
+<a href="http://introcs.cs.princeton.edu/java/43stack/Queue.java.html"><tt>Queue</tt></a>,
+and <a href="http://introcs.cs.princeton.edu/java/44st/ST.java.html"><tt>ST</tt></a>.
+<br>
+<div class="toggler">
+<a style="text-decoration:none" href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#">Click for FAQ.</a>
+</div>
+<div id="faq" style="display:none">
+<ul>
+<li><i>How can I access Java's built-in <tt>Stack</tt>/<tt>Queue</tt> instead of the introcs one?</i> At the top of your program, write <tt>import java.util.Stack;</tt> — note, <tt>import java.util.*;</tt> won't work.
+</li><li><i>How do I get shorter URLs?</i> For example code, you can use <a target="_blank" href="https://cscircles.cemc.uwaterloo.ca/java_visualize/#sampleFile=ExecLimit"><tt>#sampleFile=ExecLimit</tt></a> but 
+in general, this is a feature that still <a href="https://cscircles.cemc.uwaterloo.ca/java_visualize/TODO">needs to be implemented</a>. You could use <a href="http://goo.gl/">goo.gl</a> for now.
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+
+
+<div id="pyOutputPane" style="display: none;">
+</div>
+
+<div id="footer">
+
+<p>
+  <button id="genUrlBtn" class="smallBtn" type="button">Generate URL</button> <input type="text" id="urlOutput" size="70">
+</p>
+
+<p>To share this visualization, click the 'Generate URL' button above
+and share that URL. To report a bug, paste the URL along with a brief
+error description in an email addressed to daveagp@gmail.com</p>
+
+<div id="iframeURL-div" style="">Embeddable iframe:<input type="text" id="iframeURL" size="70" style="font-family:monospace"></div>
+
+<!--
+<div id="embedLinkDiv">
+<p>
+  <button id="genEmbedBtn" class="smallBtn" type="button">Generate embed code</button> <input type="text" id="embedCodeOutput" size="70"/>
+</p>
+
+<p>To embed this visualization in your webpage, click the 'Generate
+embed code' button above and paste the resulting HTML code into your
+webpage. Adjust the height and width parameters as needed.</p>
+</div>
+-->
+
+<!--
+
+<a href="http://pythontutor.com/">Online Python Tutor</a> supports <a
+href="http://www.python.org/doc/2.7/">Python 2.7</a> and <a
+href="http://www.python.org/doc/3.3.0/">Python 3.3</a> with limited module
+imports and no file I/O. 
+The following modules may be imported: 
+bisect,
+collections,
+datetime,
+functools,
+heapq,
+json,
+math,
+operator,
+random,
+re,
+string
+</p>
+
+<p>Have a question? Maybe the <a
+href="https://github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/user-FAQ.md">FAQ</a>
+or other <a
+href="https://github.com/pgbovine/OnlinePythonTutor/blob/master/v3/docs/">documentation</a>
+can help. Or check out its code at <a
+href="https://github.com/pgbovine/OnlinePythonTutor/">GitHub</a>.</p>
+
+<p>Join the <a
+href="https://groups.google.com/forum/#!forum/pythontutor-users">pythontutor-users</a>
+mailing list to participate in user discussions and <a
+href="https://groups.google.com/forum/#!forum/pythontutor-announce">pythontutor-announce</a>
+to receive occasional announcements.
+(Your name and email address will be kept private; only the list owner can see them.)</p>
+
+-->
+
+<p style="margin-top: 8px;">
+Based on <a href="http://www.pythontutor.com/">Online Python Tutor</a>, © 2010-2013 <a href="http://www.pgbovine.net/">Philip Guo</a> all rights reserved. Java version by <a href="mailto:daveagp@gmail.com">David Pritchard</a>, <a href="https://github.com/wgwozdz">Will Gwozdz</a>.
+Source code: for this version's <a href="https://github.com/daveagp/java_jail/tree/master/cp/traceprinter">backend</a>;
+the <a href="https://github.com/daveagp/java_visualize">frontend and installation instructions</a>.
+</p>
+
+</div>
+
+
+
+
+<div id="qtip-rcontainer"></div></body></html>
